@@ -1,7 +1,7 @@
 <template>
     <section class="menubar">
         <div class="header flex items-center justify-start pr-5">
-            <SvgIcon :path="iconLogo" class="min-w-[20px] w-8 max-w-[40px]" transform="scale(0.8)" fill="#0091A8"/>
+            <!-- <SvgIcon :path="iconLogo" class="min-w-[20px] w-8 max-w-[40px]" transform="scale(0.8)" fill="#0091A8"/> -->
             <h2 class="font-extrabold text-xl text-gray-darker ml-2">NUXT</h2>
         </div>
         <div class="body flex flex-col space-y-8 text-gray-dark">
@@ -82,7 +82,7 @@
 
 <style scoped>
     .menubar {
-        @apply text-gray-darkest py-5 pl-5 flex flex-col space-y-10;
+        @apply text-gray-darkest py-5 pl-5 flex flex-col space-y-10 border-r-2 border-l-gray-darker;
     }
     ul.menu li {
         @apply cursor-pointer flex items-center justify-between text-sm font-roboto font-medium h-7;

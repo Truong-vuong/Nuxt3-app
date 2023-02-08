@@ -22,7 +22,10 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
+  const { sayHello } = useUtils();
+  const { $hello } = useNuxtApp();
+  sayHello();
 </script>
 
 <style scoped></style>

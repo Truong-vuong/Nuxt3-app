@@ -12,7 +12,8 @@
     import Dashboard from '@/components/admin/Dashboard.vue';
 
     definePageMeta({
-        layout: 'blank'
+        layout: 'blank',
+        middleware: 'auth'
     });
 </script>
 

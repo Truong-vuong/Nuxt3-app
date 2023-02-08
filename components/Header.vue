@@ -1,35 +1,61 @@
 <template>
-    <div>
-      <h1>Color mode: {{ $colorMode.value }}</h1>
-      <select v-model="$colorMode.preference">
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="sepia">Sepia</option>
-      </select>
-    </div>
-    <Icon name="uil:github" size="28"/>
-    <Icon name="uil:sun" size="28"/>
-  </template>
+    <header>
+      <h1>NUXT</h1>
+      <div class="searchbar">
+        <SvgIcon :path="iconSearch" fill="#FF731D" class="w-5"></SvgIcon>
+        <input type="text" name="" class="border-main border">
+      </div>
+      <ul class="menu flex space-x-5">
+          <li v-for="item,index in menuBar" :key="`${item}_${index}`">
+              <div @click="handleChooseTab(item)">
+                  <span :class="item.active ? 'text-secondary-nav-100' : 'text-gray-dark'">{{ item.name }}</span>
+              </div>
+              <span :class="item.active ? 'line-active' : ''"></span>
+          </li>
+      </ul>
+    </header>
+</template>
   
-  <script setup>
-  const colorMode = useColorMode()
+<script setup lang="ts">
+  const menuBar = reactive([
+        {
+            name: 'Overview', icon: icomMenuBar, active: true,
+        },
+        {
+            name: 'Order', icon: iconCart, active: false,
+        },
+        {
+            name: 'Products', icon: iconProduct, active: false,
+        },
+        {
+            name: 'Customers', icon: iconUser, active: false,
+        },
+        {
+            name: 'Report', icon: iconReport, active: false,
+        },
+        {
+            name: 'Transaction', icon: iconProduct, active: false,
+        },
+        {
+            name: 'Shipment', icon: iconShipment, active: false,
+        },
+        {
+            name: 'Help center', icon: iconProduct, active: false,
+        },
+        {
+            name: 'Setting', icon: iconSetting, active: false,
+        },
+        {
+            name: 'Logout', icon: iconProduct, active: false,
+        },
+  ]);
+
+  const handleChooseTab = (item: any) => {
+        menuBar.forEach(menu => menu.active = false);
+        item.active = true;
+  };
+</script>
   
-  console.log(colorMode.preference)
-  </script>
-  
-  <style>
-  body {
-    background-color: #fff;
-    color: rgba(0,0,0,0.8);
-  }
-  .dark-mode body {
-    background-color: #091a28;
-    color: #ebf4f1;
-  }
-  .sepia-mode body {
-    background-color: #f1e7d0;
-    color: #433422;
-  }
-  </style>
+<style scoped>
+</style>
   

@@ -29,6 +29,9 @@ module.exports = {
     },
     extend: {
       colors: {
+        //main
+        'main': '#FF731D',
+        'main-button': '#FF6E31',
         // primary CTA
         'primary-cta-5': '#FFFAF5',
         'primary-cta-10': '#FEF4EA',

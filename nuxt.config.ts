@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@nuxtjs/color-mode',
         'nuxt-icon',
-    ],
+    ], 
     typescript: {
         shim: false
     },
