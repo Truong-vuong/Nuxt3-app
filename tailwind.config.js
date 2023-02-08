@@ -115,5 +115,13 @@ module.exports = {
       },
     },
   },
+  corePlugins: {
+    backdropOpacity: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+    divideOpacity: false,
+    ringOpacity: false,
+    textOpacity: false
+  },
   //plugins: [require('@tailwindcss/aspect-ratio'), require('@tailwindcss/line-clamp'), require('@tailwindcss/forms')],
 };

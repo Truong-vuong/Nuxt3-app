@@ -11,6 +11,13 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+    import { User } from '~~/types/user';
+
     const { data: products } = await useFetch('https://fakestoreapi.com/products');
+    const a: User = {
+        name: '',
+        age:1,
+        title:''
+    };
 </script>

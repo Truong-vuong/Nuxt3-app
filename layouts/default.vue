@@ -6,6 +6,7 @@
             <li><nuxt-link to="/products">Products</nuxt-link></li>
         </ul>
     </header>
+    <Header></Header>
     <main>
         <slot/>
     </main>
