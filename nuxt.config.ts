@@ -20,6 +20,9 @@ export default defineNuxtConfig({
     typescript: {
         shim: false
     },
+    plugins: [
+        { src: '~/plugins/notify', mode: 'client' }
+    ],
     tailwindcss: {
         cssPath: '~/assets/css/tailwind.css',
         configPath: 'tailwind.config',

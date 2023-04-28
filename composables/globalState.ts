@@ -1,0 +1,1 @@
+export const useShowNotify = () => useState('showNotify', () => false);

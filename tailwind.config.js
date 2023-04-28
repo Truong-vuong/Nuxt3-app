@@ -30,8 +30,10 @@ module.exports = {
     extend: {
       colors: {
         //main
-        'main': '#FF731D',
+        'main': '#E1372D',
         'main-button': '#FF6E31',
+        'background': '#D0D4E3',
+        'background-10': '#BCC5D2',
         // primary CTA
         'primary-cta-5': '#FFFAF5',
         'primary-cta-10': '#FEF4EA',
