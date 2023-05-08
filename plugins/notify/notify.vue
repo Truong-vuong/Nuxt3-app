@@ -2,8 +2,10 @@
   <div
     class="notify__content animation"
     :style="{ width: `${width}px`, height: `${height}px` }"
+    :class="`bg-${type}-80`"
   >
-    <h2>{{ text }}</h2>
+    <h2 class="font-semibold">{{ text }}</h2>
+    <span @click="onClose" class="p-4 cursor-pointer text-2xl font-bold">x</span>
   </div>
 </template>
 
@@ -15,52 +17,34 @@ const props = defineProps({
   },
   width: {
     type: Number,
+    default: 260,
   },
   height: {
     type: Number,
+    default: 60,
   },
   text: {
     type: String,
   },
+  type: {
+    type: String,
+    default: "success",
+  }
 });
 
 const { $bus } = useNuxtApp();
-const active = ref(true);
-const timeout: number = props.timeout;
 onMounted(() => {
-  active.value = true;
-  if (props.timeout) {
-    setTimeout(() => {
-      if (active.value) {
-        $bus.$emit("close");
-        active.value = false;
-      }
-    }, props.timeout);
-  }
 });
-const onCloseClick = () => {
-  active.value = false;
+
+const onClose = () => {
   $bus.$emit("close");
 };
-
-const handleTimeout = (timeout: number) => {
-  setTimeout(() => {
-    $bus.$emit("timeout", () => 1);
-  }, timeout * 1000);
-};
-
-watch(() => timeout, (val) => {
-  if(val) {
-    handleTimeout(val);
-  }
-}, { immediate: true })
-
 </script>
 
 <style scoped>
 /* Notify Plugin style */
 .notify__content {
-  @apply fixed top-0 right-0 bg-primary-cta-5;
+  @apply flex items-center justify-between p-4 fixed top-5 right-5 rounded-md border-neutral-600 border-solid text-white;
 }
 
 @keyframes transform-left {

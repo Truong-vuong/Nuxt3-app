@@ -3,4 +3,5 @@ export interface Notify {
     text: string;
     width: number;
     height: number;
+    type: string;
 };
