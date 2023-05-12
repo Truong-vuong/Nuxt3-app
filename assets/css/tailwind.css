@@ -5,3 +5,10 @@
 html {
     font-family: 'Times New Roman', Times, serif;
 }
+html.cafe {
+    filter: sepia(0.9) hue-rotate(315deg) brightness(0.9);
+  }
+  
+  html.contrast {
+    filter: contrast(2);
+  }

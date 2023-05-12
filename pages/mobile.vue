@@ -10,6 +10,7 @@
 <script setup lang="ts">
 import { useBattery } from "@vueuse/core";
 import { useVibrate } from "@vueuse/core";
+import { useColorMode, useCycleList } from '@vueuse/core';
 
 definePageMeta({
   layout: "blank",
@@ -18,6 +19,14 @@ definePageMeta({
 const { $notify } = useNuxtApp();
 const { charging, chargingTime, dischargingTime, level } = useBattery();
 const { vibrate, stop, isSupported } = useVibrate({ pattern: [300, 100, 300] });
+const mode = useColorMode({
+  emitAuto: true,
+  modes: {
+    contrast: 'dark contrast',
+    cafe: 'cafe',
+  },
+});
+const { state, next } = useCycleList(['cafe', 'contrast',], { initialValue: mode })
 
 const batteryStatus = () => {
   $notify({
@@ -34,6 +43,14 @@ const hadleVibrate = () => {
     }, 10000);
   }
 };
+
+watchEffect(() => mode.value = state.value as any)
+
+onMounted(() => {
+    if(level.value > 0.2) {
+        state.value = 'contrast'
+    }
+})
 </script>
 
 <style scoped>
