@@ -25,6 +25,7 @@
 <script setup>
   const { sayHello } = useUtils();
   const { $hello } = useNuxtApp();
+  console.log("provide hello", $hello("vuong"))
   sayHello();
 </script>
 

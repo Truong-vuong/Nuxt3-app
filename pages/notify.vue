@@ -42,6 +42,7 @@ const errorNotify = () => {
     type: "error",
   });
 };
+const useNotify = useShowNotify();
 </script>
 
 <style scoped>

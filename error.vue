@@ -7,8 +7,8 @@
 </template>
 
 <script setup>
-    defineProps(['error']);
-
+    const error = useError()
+    //console.log(error)
     const handelClearError = () => clearError({ redirect: '/', fatal: true});
 </script>
 
