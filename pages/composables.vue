@@ -1,6 +1,6 @@
 <template>
   <h1>Composables</h1>
-
+  <button @click="navigateTo('/api')">api</button>
   <UseCookie></UseCookie>
 </template>
 
@@ -29,13 +29,22 @@ useHeadSafe({
   ]
 })
 useSeoMeta({
-  title: 'My Amazing Site',
-  ogTitle: 'My Amazing Site',
-  description: 'This is my amazing site, let me tell you all about it.',
-  ogDescription: 'This is my amazing site, let me tell you all about it.',
+  title: 'My Abc Site',
+  ogTitle: 'My Abc Site',
+  description: 'This is my Abc site, let me tell you all about it.',
+  ogDescription: 'This is my Abc site, let me tell you all about it.',
   ogImage: 'https://example.com/image.png',
   twitterCard: 'summary_large_image',
-})
+});
+
+useServerSeoMeta({
+  title: 'My Def Site',
+  ogTitle: 'My Def Site',
+  description: 'This is my Def Site, let me tell you all about it.',
+  ogDescription: 'This is my Def Site, let me tell you all about it.',
+  ogImage: 'https://example.com/image.png',
+  twitterCard: 'summary_large_image',
+});
 const appConfig = useAppConfig();
 // console.log("init", appConfig.color.mainColor)
 // appConfig.color.mainColor = "000000";
@@ -49,7 +58,7 @@ const nuxtApp = useNuxtApp();
 const event = useRequestEvent()
 // Get the URL
 const url = event?.node?.req?.url;
-//console.log("url", url)
+console.log("url", url)
 
 // Get all request headers
 const headers = useRequestHeaders()

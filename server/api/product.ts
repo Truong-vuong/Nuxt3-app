@@ -1,14 +1,15 @@
-export default defineEventHandler(async (event) => {
-    try {
-      const data = await $fetch(`${config.public.baseAccountUrl}/customers/resetPassword`, {
-        headers: headers,
-        method: 'POST',
-        body: newBody,
-      });
-      return data;
-    } catch (e) {
-      console.error(e);
-      return { message: 'Error' };
-    }
-  });
-  
+export default defineEventHandler(async (event: any) => {
+  console.log("product2111");
+  try {
+    const data = await $fetch(`https://fakestoreapi.com/products`, { method: 'GET'});
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(data);
+      }, 3000);
+    });
+  } catch (error: any) {
+    return {
+      error: error.message,
+    };
+  }
+});
